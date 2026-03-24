@@ -5,7 +5,7 @@ resources:
   - ../../base
 
 # 개발 환경에만 붙일 접미사나 네임스페이스 설정
-namespace: demo-dev
+namespace: demo
 namePrefix: dev-
 
 # 개발 환경용 이미지 태그 고정
