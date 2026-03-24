@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pandas-bot
+  namespace: demo
 spec:
-  replicas: 1 # 기본값은 1개
+  replicas: 1 
   selector:
     matchLabels:
       app: pandas-bot
@@ -14,6 +15,14 @@ spec:
     spec:
       containers:
       - name: pandas-bot
-        image: registry.ocp.test.com:5000/demo/pandas-bot
+        # 우리가 Tekton으로 빌드한 바로 그 이미지 주소!
+        image: registry.ocp.test.com:5000/demo/pandas-bot:latest
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: openai-secret     # 아까 만든 시크릿 이름
+              key: OPENAI_API_KEY    # 시크릿 안의 키 이름
         ports:
         - containerPort: 8080
+
