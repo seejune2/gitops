@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pandas-bot
+spec:
+  replicas: 1 # 기본값은 1개
+  selector:
+    matchLabels:
+      app: pandas-bot
+  template:
+    metadata:
+      labels:
+        app: pandas-bot
+    spec:
+      containers:
+      - name: pandas-bot
+        image: registry.ocp.test.com:5000/demo/pandas-bot
+        ports:
+        - containerPort: 8080

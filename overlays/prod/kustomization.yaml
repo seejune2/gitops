@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+namespace: demo-prod
+namePrefix: prod-
+
+# 운영 환경은 안정성을 위해 복제본을 늘립니다.
+patches:
+- target:
+    kind: Deployment
+    name: pandas-bot
+  patch: |-
+    - op: replace
+      path: /spec/replicas
+      value: 3
+
+images:
+  - name: registry.ocp.test.com:5000/demo/pandas-bot
+    newTag: v1.0.0 # 운영은 검증된 버전만 사용
