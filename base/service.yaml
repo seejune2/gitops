@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pandas-bot-service
-  namespace: demo
+  namespace: demo-dev
 spec:
   selector:
     app: pandas-bot      # Deployment의 labels와 똑같아야 합니다!
