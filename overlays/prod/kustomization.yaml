@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - ../../base
 
-namespace: demo-prod
 namePrefix: prod-
 
 # 운영 환경은 안정성을 위해 복제본을 늘립니다.
