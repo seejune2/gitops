@@ -10,4 +10,4 @@ namePrefix: dev-
 # 개발 환경용 이미지 태그 고정
 images:
   - name: registry.ocp.test.com:5000/demo/pandas-bot
-    newTag: df90500f5ed6aafc046bfbf404b412f695cf96ab
+    newTag: f6cde8d1746e2d699d538ec01e2ee4833a31d936
